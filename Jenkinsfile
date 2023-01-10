@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/shitalkumar58627/terraform-backend.git']])
+            checkout scmGit(branches: [[name: '*/main']], extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: '/backend/main.tf']]]], userRemoteConfigs: [[url: 'https://github.com/shitalkumar58627/terraform-backend.git']])
 
           }
         }
